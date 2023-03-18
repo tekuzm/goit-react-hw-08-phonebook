@@ -10,7 +10,7 @@ import { Form, Input, AddBtn } from './ContactForm.styled';
 const ContactForm = () => {
   const dispatch = useDispatch();
 
-  const [state, setState] = useState({ name: '', phone: '' });
+  const [state, setState] = useState({ name: '', number: '' });
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -31,9 +31,9 @@ const ContactForm = () => {
       await dispatch(
         addContact({
           name,
-          phone,
+          number,
           onSuccess: () => {
-            setState({ name: '', phone: '' });
+            setState({ name: '', number: '' });
           },
         })
       );
@@ -43,10 +43,10 @@ const ContactForm = () => {
       setLoading(false);
     }
 
-    // dispatch(addContact({ name, phone }))
+    // dispatch(addContact({ name, number }))
     //   .then(({ error }) => {
     //     if (!error) {
-    //       setState({ name: '', phone: '' });
+    //       setState({ name: '', number: '' });
     //     }
     //   })
     //   .catch(error => console.log(error));
@@ -62,7 +62,7 @@ const ContactForm = () => {
     });
   };
 
-  const { name, phone } = state;
+  const { name, number } = state;
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -80,8 +80,8 @@ const ContactForm = () => {
       <label>Number</label>
       <Input
         type="tel"
-        name="phone"
-        value={phone}
+        name="number"
+        value={number}
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required

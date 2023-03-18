@@ -19,12 +19,12 @@ const ContactList = ({ contacts }) => {
 
   return (
     <List>
-      {contacts.map(({ id, name, phone }) => (
+      {contacts.map(({ id, name, number }) => (
         <ContactItem
           key={id}
           id={id}
           name={name}
-          phone={phone}
+          phone={number}
           deleteItem={handleDeleteContact}
         />
       ))}
@@ -43,7 +43,7 @@ ContactList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
     })
   ),
 };
