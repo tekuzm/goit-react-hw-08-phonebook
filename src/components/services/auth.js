@@ -24,3 +24,20 @@ export const login = async data => {
 
   return response;
 };
+
+export const getCurrent = async token => {
+  try {
+    setToken(token);
+    const response = await instance.get('/users/current');
+    return response.data;
+  } catch (error) {
+    setToken();
+    throw error;
+  }
+};
+
+export const logout = async () => {
+  const response = await instance.post('/users/logout');
+  setToken();
+  return response;
+};

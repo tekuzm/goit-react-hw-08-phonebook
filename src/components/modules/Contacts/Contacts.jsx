@@ -3,15 +3,14 @@ import { getFilteredContacts } from 'redux/contacts/selectors';
 
 // ========== components ==========
 
-import ContactList from 'components/ContactList/ContactList';
-import Filter from 'components/Filter/Filter';
+import ContactList from 'components/modules/ContactList/ContactList';
+import Filter from 'components/modules/Filter/Filter';
 
 const Contacts = () => {
   const contacts = useSelector(getFilteredContacts);
 
   return (
     <>
-      <h2>Contacts</h2>
       <Filter />
       {contacts.length ? (
         <ContactList contacts={contacts} />

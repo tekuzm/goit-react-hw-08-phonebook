@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 // ========== components ==========
 
-import ContactItem from 'components/ContactItem/ContactItem';
+import ContactItem from 'components/modules/ContactItem/ContactItem';
 
 // ========== styles ==========
 

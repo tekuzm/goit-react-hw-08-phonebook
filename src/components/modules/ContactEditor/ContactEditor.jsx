@@ -5,7 +5,7 @@ import { addContact, fetchContacts } from 'redux/contacts/operations';
 
 // ========== styles ===========
 
-import { Form, Input, AddBtn } from './ContactForm.styled';
+import { Form, Input, AddBtn } from './ContactEditor.styled';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
