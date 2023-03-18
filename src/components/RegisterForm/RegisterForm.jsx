@@ -18,7 +18,7 @@ const RegisterForm = () => {
         password: form.elements.password.value,
       })
     );
-    form.reset();
+    setState({ name: '', email: '', password: '' });
   };
 
   const handleChange = ({ target }) => {
