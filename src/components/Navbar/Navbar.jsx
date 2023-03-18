@@ -1,7 +1,7 @@
 import UserMenu from 'components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import isUserLogin from 'redux/auth/selectors';
+import { isUserLogin } from 'redux/auth/selectors';
 
 import NavbarAuth from './NavbarAuth/NavbarAuth';
 

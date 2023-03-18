@@ -1,3 +1,3 @@
-const isUserLogin = store => store.auth.isLogin;
+export const isUserLogin = store => store.auth.isLogin;
 
-export default isUserLogin;
+export const getEmail = store => store.auth.user.email;
