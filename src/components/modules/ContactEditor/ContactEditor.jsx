@@ -5,7 +5,8 @@ import { addContact, fetchContacts } from 'redux/contacts/operations';
 
 // ========== styles ===========
 
-import { Form, Input, AddBtn } from './ContactEditor.styled';
+import { Input } from '@chakra-ui/react';
+import { Form, AddBtn } from './ContactEditor.styled';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -68,6 +69,8 @@ const ContactForm = () => {
     <Form onSubmit={handleSubmit}>
       <label>Name</label>
       <Input
+        size="md"
+        variant="filled"
         type="text"
         name="name"
         value={name}
@@ -79,6 +82,8 @@ const ContactForm = () => {
       />
       <label>Number</label>
       <Input
+        size="md"
+        variant="filled"
         type="tel"
         name="number"
         value={number}
