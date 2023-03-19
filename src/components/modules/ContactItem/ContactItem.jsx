@@ -3,7 +3,9 @@ import { useState } from 'react';
 
 // ========== styles ==========
 
-import { Item, Bullet, DeleteBtn } from './ContactItem.styled';
+import { Button } from '@chakra-ui/react';
+
+import css from './ContactItem.module.css';
 
 const ContactItem = ({ id, name, phone, deleteItem }) => {
   const [loading, setLoading] = useState(false);
@@ -15,13 +17,20 @@ const ContactItem = ({ id, name, phone, deleteItem }) => {
   };
 
   return (
-    <Item>
-      <Bullet></Bullet>
+    <li className={css.contactItem}>
+      <span className={css.contactItemBullet}></span>
       {name}: {phone}
-      <DeleteBtn onClick={handleDelete} type="button" disabled={loading}>
-        {loading ? 'Loading...' : 'Delete'}
-      </DeleteBtn>
-    </Item>
+      <Button
+        isLoading={loading}
+        colorScheme="teal"
+        size="md"
+        onClick={handleDelete}
+        type="button"
+        disabled={loading}
+      >
+        Delete
+      </Button>
+    </li>
   );
 };
 

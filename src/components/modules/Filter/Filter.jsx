@@ -3,9 +3,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getFilter } from 'redux/filter/selectors';
 import { setFilter } from 'redux/filter/slice';
 
+// ========== components ==========
+
+import SearchBtn from '../SearchBtn/SearchBtn';
+
 // ========== styles ==========
 
-import { FilterWrap, FilterInput } from './Filter.styled';
+import { Input } from '@chakra-ui/react';
+import { IconButton } from '@chakra-ui/react';
+
+import css from './Filter.module.css';
 
 const Filter = () => {
   const filter = useSelector(getFilter);
@@ -16,15 +23,19 @@ const Filter = () => {
 
   // Return layout
   return (
-    <FilterWrap>
-      <label>Find contacts by name</label>
-      <FilterInput
+    <div className={css.filterWrap}>
+      <Input
+        size="md"
+        variant="outline"
         type="text"
         name="filter"
+        focusBorderColor="teal.500"
+        placeholder="Find contacts by name"
         onChange={handleFilter}
         value={filter}
       />
-    </FilterWrap>
+      <IconButton aria-label="Search database" icon={<SearchBtn />} />
+    </div>
   );
 };
 

@@ -5,10 +5,19 @@ import { addContact, fetchContacts } from 'redux/contacts/operations';
 
 // ========== styles ===========
 
-import { Input } from '@chakra-ui/react';
-import { Form, AddBtn } from './ContactEditor.styled';
+import {
+  Input,
+  InputLeftElement,
+  Button,
+  Icon,
+  InputGroup,
+} from '@chakra-ui/react';
+import { TbUserCircle } from 'react-icons/tb';
+import { AiOutlinePhone } from 'react-icons/ai';
 
-const ContactForm = () => {
+import css from './ContactEditor.module.css';
+
+const ContactEditor = () => {
   const dispatch = useDispatch();
 
   const [state, setState] = useState({ name: '', number: '' });
@@ -66,37 +75,52 @@ const ContactForm = () => {
   const { name, number } = state;
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <label>Name</label>
-      <Input
-        size="md"
-        variant="filled"
-        type="text"
-        name="name"
-        value={name}
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        required
-        onChange={handleChange}
-        placeholder="Enter name"
-      />
-      <label>Number</label>
-      <Input
-        size="md"
-        variant="filled"
-        type="tel"
-        name="number"
-        value={number}
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-        required
-        onChange={handleChange}
-        placeholder="Enter phone number"
-      />
+    <form className={css.contactEditForm} onSubmit={handleSubmit}>
+      <InputGroup>
+        <InputLeftElement
+          pointerEvents="none"
+          children={<Icon as={TbUserCircle} boxSize={6} />}
+        />
+        <Input
+          size="md"
+          variant="outline"
+          type="text"
+          name="name"
+          value={name}
+          focusBorderColor="teal.500"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+          onChange={handleChange}
+          placeholder="Enter name"
+        />
+      </InputGroup>
 
-      <AddBtn type="submit">{loading ? 'Loading...' : 'Add contact'}</AddBtn>
-    </Form>
+      <InputGroup>
+        <InputLeftElement
+          pointerEvents="none"
+          children={<Icon as={AiOutlinePhone} boxSize={6} />}
+        />
+        <Input
+          size="md"
+          variant="outline"
+          type="tel"
+          name="number"
+          value={number}
+          focusBorderColor="teal.500"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          onChange={handleChange}
+          placeholder="Enter phone number"
+        />
+      </InputGroup>
+
+      <Button isLoading={loading} colorScheme="teal" size="md" type="submit">
+        Add contact
+      </Button>
+    </form>
   );
 };
 
-export default ContactForm;
+export default ContactEditor;

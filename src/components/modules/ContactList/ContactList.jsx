@@ -1,4 +1,7 @@
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+
+import { deleteContact } from 'redux/contacts/operations';
 
 // ========== components ==========
 
@@ -6,9 +9,7 @@ import ContactItem from 'components/modules/ContactItem/ContactItem';
 
 // ========== styles ==========
 
-import { List } from './ContactList.styled';
-import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contacts/operations';
+import css from './ContactList.module.css';
 
 const ContactList = ({ contacts }) => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const ContactList = ({ contacts }) => {
   };
 
   return (
-    <List>
+    <ul className={css.contactList}>
       {contacts.map(({ id, name, number }) => (
         <ContactItem
           key={id}
@@ -28,7 +29,7 @@ const ContactList = ({ contacts }) => {
           deleteItem={handleDeleteContact}
         />
       ))}
-    </List>
+    </ul>
   );
 };
 

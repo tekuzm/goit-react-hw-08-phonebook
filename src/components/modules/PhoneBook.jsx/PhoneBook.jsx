@@ -1,18 +1,18 @@
 // ========== components ==========
 
-import ContactForm from '../ContactEditor/ContactEditor';
+import ContactEditor from '../ContactEditor/ContactEditor';
 import Contacts from '../Contacts/Contacts';
 
 // ========== styles ==========
 
-import { PhoneBookStyles } from './PhoneBook.styled';
+import css from './PhoneBook.module.css';
 
 const PhoneBook = () => {
   return (
-    <PhoneBookStyles>
-      <ContactForm />
+    <div className={css.phonebookWrap}>
+      <ContactEditor />
       <Contacts />
-    </PhoneBookStyles>
+    </div>
   );
 };
 

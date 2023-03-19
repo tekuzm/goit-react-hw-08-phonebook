@@ -1,0 +1,7 @@
+.filterWrap {
+  width: 320px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

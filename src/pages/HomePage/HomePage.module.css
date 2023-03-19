@@ -1,0 +1,12 @@
+.homePageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-weight: 700;
+}
+
+.homePageText {
+  font-size: 30px;
+  text-align: center;
+}
