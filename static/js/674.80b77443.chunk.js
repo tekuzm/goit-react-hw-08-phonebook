@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkphonebook_app=self.webpackChunkphonebook_app||[]).push([[674],{8674:function(e,o,n){n.r(o),n.d(o,{default:function(){return h}});var a="HomePage_homePageContainer__TbjDn",t="HomePage_homePageText__zNdk4",c=n(3329),h=function(){return(0,c.jsx)("div",{className:a,children:(0,c.jsx)("div",{className:t,children:"Welcome to the Phonebook App!"})})}}}]);
+//# sourceMappingURL=674.80b77443.chunk.js.map
