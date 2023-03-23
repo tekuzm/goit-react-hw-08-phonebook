@@ -39,6 +39,11 @@ const LoginForm = () => {
         logIn({
           email: form.elements.email.value,
           password: form.elements.password.value,
+          // user: {
+          //   email: form.elements.email.value,
+          //   password: form.elements.password.value,
+          // },
+          // token: '',
         })
       );
       setState({ email: '', password: '' });
